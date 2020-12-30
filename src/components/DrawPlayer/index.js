@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import DrawPlayer from "./DrawPlayer";
-import { drawPlayer } from "../../data/actions";
+import { drawPlayer } from "../../data/actions/actions";
 
 const mapStateToProps = (state) => {
   return {

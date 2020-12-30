@@ -1,6 +1,6 @@
 import BankPickButton from "./BankPickButton";
 import { connect } from "react-redux";
-import { pickPlayer } from "../../data/actions";
+import { pickPlayer } from "../../data/actions/actions";
 
 const mapStateToProps = state => {
   return {

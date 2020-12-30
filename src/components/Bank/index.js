@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Bank from "./Bank";
+import { getPlayers } from "../../data/actions/api";
 
 const mapStateToProps = state => {
   return {
@@ -8,4 +9,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Bank);
+const mapDispatchToProps = (dispatch) => {
+  return {
+      handleLoad: () => dispatch(getPlayers()),
+      // handleLoad: () => console.log("hello"),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Bank);

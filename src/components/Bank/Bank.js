@@ -3,14 +3,14 @@ import BankPickButton from "../BankPickButton/";
 import BankClearButton from "../BankClearButton/";
 
 class Bank extends Component {
-  constructor(props) {
-      super(props);
+  // constructor(props) {
+  //     super(props);
 
-  }
-
-  // componentDidMount() {
-  //   this.props.handleLoad();
   // }
+
+  componentDidMount() {
+    this.props.handleLoad();
+  }
   
   render() {
     const { bank } = this.props;

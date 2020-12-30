@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import Team1 from "./Team";
 
-import { generateName1 } from "../../data/actions";
+import { generateName1 } from "../../data/actions/actions";
 
 const mapStateToProps = (state) => { 
   return {
