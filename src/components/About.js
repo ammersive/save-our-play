@@ -30,8 +30,8 @@ const About = () => (
         <p className="about-text">Don’t take play too seriously? The <span className="button-span">Generate team name</span>feature will give you a (near) endless supply of tongue-in-cheek triple-barrel names for each side.</p>
       </div>
       <div className="about-box">
-        <h3 className="about-subheading">Version 1 information:</h3>
-        <p className="about-text">Player data is stored locally for each browser session. <a href="https://github.com/ammersive/save-our-play" target="_blank" rel="noreferrer">Version 2</a> (in development) will support storage of player data between sessions, powered by <a href="https://github.com/ammersive/tp-back/" target="_blank" rel="noreferrer">this API</a>.</p>
+        <h3 className="about-subheading">Version 2 information:</h3>
+        <p className="about-text">Powered by <a href="https://github.com/ammersive/tp-back/" target="_blank" rel="noreferrer">this API</a>.</p>
       </div>
     </div>
   </section>
