@@ -4,21 +4,21 @@ class AddPlayer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			player: { name: "", playCount: 0, isPicked: false, isNew: true },
+			player: { name: "", play_count: 0, isPicked: false, isNew: true },
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	handleChange(e) {
-		let player = { name: e.currentTarget.value, playCount: 0, isPicked: false, isNew: true }; 
+		let player = { name: e.currentTarget.value, play_count: 0, isPicked: false, isNew: true }; 
 		this.setState({ player: player });
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.handleSave({ ...this.state }); // copy the local state	to pass up			
-		this.setState({ player: { name: "", playCount: 0, isPicked: false, isNew: true } }); //reset the state
+		this.setState({ player: { name: "", play_count: 0, isPicked: false, isNew: true } }); //reset the state
 	}
 
 	render() {

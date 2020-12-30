@@ -96,8 +96,8 @@ const drawPlayer = (state) => {
       let pick = filteredBank.splice(Math.floor(Math.random() * i), 1);
       randomisedFilter.push(pick[0]);
     };
-    // Sort highest to lowest playcounts (players with same playcounts will now not always appear at same/similar indices)
-    randomisedFilter.sort(( a, b ) => a.playCount - b.playCount); 
+    // Sort highest to lowest play_counts (players with same play_counts will now not always appear at same/similar indices)
+    randomisedFilter.sort(( a, b ) => a.play_count - b.play_count); 
     // Select the first (so, a player from the set of players with the lowest score, produced randomly), and add to players list
     randomisedFilter[0].isPicked = true;
     state.players = [...state.players, randomisedFilter[0]];
@@ -207,9 +207,9 @@ const generateName2 = (state) => {
   }; 
 };
 
-// Increments the playcount of the player passed to the function parameter 
+// Increments the play_count of the player passed to the function parameter 
 const incrementPlayCount = (player) => {
-  player.playCount = player.playCount + 1;
+  player.play_count = player.play_count + 1;
   return player;
 }
 
@@ -225,9 +225,9 @@ const updateIsNew = (player) => {
   return player;
 }
 
-// save increments the scores of all players in the players list with incrementPlayCount(), works out if they are new (and so need to be added to the bank), and resets their other properties with updateIsNew() and resetIsPicked()
+// save increments the scores of all players in the players list with incrementplay_count(), works out if they are new (and so need to be added to the bank), and resets their other properties with updateIsNew() and resetIsPicked()
 const save = (state) => {
-  // Increment the playCount of each player and reset isPicked to false
+  // Increment the play_count of each player and reset isPicked to false
   state.players.forEach(player => incrementPlayCount(resetIsPicked(player)));
   // Push new players to the bank, reseting their isNew property to false
   // state.players.forEach(player => player.isNew ? state.bank = [...state.bank, updateIsNew(player)] : null );

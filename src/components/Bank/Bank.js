@@ -28,7 +28,7 @@ class Bank extends Component {
                   { player.name }
                 </div>  
                 <div className="play-count-cell">
-                  { player.playCount }
+                  { player.play_count }
                 </div> 
                 <div className="bank-add-wrap">
                   <BankPickButton index={ index } player={ player }/>
