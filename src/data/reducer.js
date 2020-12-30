@@ -61,6 +61,16 @@ const nouns = [
   "Lads"
 ];
 
+// storePlayers takes data that has come from the back end via a get request to the API and populates the bank in the application's state
+const storePlayers = (state, { data }) => {
+  console.log(data);
+  return {
+      ...state,
+      bank: data,
+  };
+};
+
+
 // pickPlayer allows a player from the bank to be added to the picks list, ensuring they haven't been added already.
 const pickPlayer = (state, { player }) => {
   if (player.isPicked === false) {
@@ -245,6 +255,7 @@ const clearBank = (state) => {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "STORE_PLAYERS": return storePlayers(state, action);;
     case "CLEAR_BANK": return clearBank(state);;
     case "PICK_PLAYER": return pickPlayer(state, action);
     case "DRAW_PLAYER": return drawPlayer(state);

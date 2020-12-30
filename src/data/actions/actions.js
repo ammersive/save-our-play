@@ -1,6 +1,11 @@
 // Action creators:
 // Functions which return an action when called (from a component wrapper)
 
+export const storePlayers = (data) => ({
+  type: "STORE_PLAYERS",
+  data: data,
+});
+
 export const clearBank = () => {  
   return { 
     type: "CLEAR_BANK",
