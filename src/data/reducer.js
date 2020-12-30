@@ -63,7 +63,6 @@ const nouns = [
 
 // storePlayers takes data that has come from the back end via a get request to the API and populates the bank in the application's state
 const storePlayers = (state, { data }) => {
-  console.log(data);
   return {
       ...state,
       bank: data,
@@ -71,10 +70,10 @@ const storePlayers = (state, { data }) => {
 };
 
 
-// pickPlayer allows a player from the bank to be added to the picks list, ensuring they haven't been added already.
+// pickPlayer fires when a "Pick" player button on the bank is clicked. If the incoming player's id doesn't match a player already in the picked players list, it adds the incoming player to that list.
 const pickPlayer = (state, { player }) => {
-  if (player.isPicked === false) {
-    player.isPicked = true;
+  
+  if ((state.players.length === 0) || (false === state.players.some(listPlayer => listPlayer.id === player.id))) { 
     state.players = [...state.players, player];
   };  
 
