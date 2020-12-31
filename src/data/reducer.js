@@ -74,6 +74,7 @@ const storePlayers = (state, { data }) => {
 const pickPlayer = (state, { player }) => {
   
   if ((state.players.length === 0) || (false === state.players.some(listPlayer => listPlayer.id === player.id))) { 
+    player.isPicked = true;
     state.players = [...state.players, player];
   };  
 
@@ -82,14 +83,20 @@ const pickPlayer = (state, { player }) => {
   }; 
 };
 
-// drawPlayer ensures lowest plays players are picked first, but that those with the same number of players are picked at random to avoid bias over time.
-const drawPlayer = (state) => {  
-  // If at least one player in the bank remains unpicked:
-  if (state.bank.some(player => player.isPicked === false)) {
+// drawPlayer ensures players with the lowest play count are drawn first.
+// If multiple players share the lowest play count, they are picked at random to avoid bias over time.
+const drawPlayer = (state) => { 
+  // First: check there is at least one unpicked player in the bank:
+  // "If, for at least one player in the bank, their id is NOT shared by any player already picked"
+  // if (state.bank.some(bankPlayer => state.players.every((pickedPlayer) => pickedPlayer.id !== bankPlayer.id) )) {
+  //   console.log("true");
 
+  // If at least one player in the bank remains unpicked:
+  if (state.bank.some(player => false === player.hasOwnProperty('isPicked'))) {
     // Filter players who have already been selected
-    let filteredBank = state.bank.filter( player => player.isPicked === false);
+    let filteredBank = state.bank.filter( player => false === player.hasOwnProperty('isPicked'));
     // Build a new randomised list from the filtered bank
+    console.log(filteredBank);
     let randomisedFilter = [];
     for (let i = filteredBank.length; i > 0; i -= 1) {
       let pick = filteredBank.splice(Math.floor(Math.random() * i), 1);
