@@ -16,7 +16,7 @@
   padding-bottom: 2rem;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5); 
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 860px) {
   .team {
     width: 90%;
   }
@@ -26,7 +26,7 @@
   position: relative;
   top: -1rem;
   border: 0px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   padding: 0.5rem;
   border-radius: 8px; 
   background-color: beige; 
