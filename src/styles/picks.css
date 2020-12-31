@@ -1,5 +1,5 @@
 .picks {
-  width: 18rem;
+  width: 23rem;
   background:rgba(125, 171, 32, 0.85);
   border-radius: 20px;
   padding-bottom: 0.1rem;
@@ -15,6 +15,7 @@
 .player-list-item {
   background-color: rgb(29, 36, 18);
   color: beige;
+  font-size: 1.1rem;
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 8px;
@@ -24,7 +25,7 @@ button.create-button {
   display: block;
   margin: 0.8rem auto;
   border: 0px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding: 0.5rem;
   border-radius: 8px;
   background-color: beige; 
@@ -33,7 +34,7 @@ button.create-button {
 button.clear-picked-players {  
   background-color: rgb(255, 28, 62);
   border: 0px;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   padding: 0.3rem;
   border-radius: 8px;
   margin-bottom: 1rem; 

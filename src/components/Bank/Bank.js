@@ -16,7 +16,7 @@ class Bank extends Component {
         <h3>Player bank</h3> 
         {bank.length > 0 ? 
         <> 
-          <h4>Number of previous plays</h4> 
+          <h4>Number of plays</h4> 
           <ul>
             
             { bank.map((player) => (

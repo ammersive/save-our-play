@@ -73,8 +73,8 @@ p.about-text a:hover {
 .bank h3 {
   text-align: center;
   font-family: 'Nova Flat', cursive;
-  font-size: 1.5rem;
-  line-height: 1.8rem;
+  font-size: 2rem;
+  line-height: 2.6rem;
   padding: 1rem;
   background: rgb(29, 36, 18);
   color: beige;
@@ -90,14 +90,16 @@ p.about-text a:hover {
 
 .draw-add-players h3 {
   font-family: 'Nova Flat', cursive;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
   color: beige;
   padding-bottom: 1rem;
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
 }
 
 .draw-add-players p {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  line-height: 1.3rem;
   color: beige;
   padding-bottom: 0.5rem;
 }
@@ -105,6 +107,7 @@ p.about-text a:hover {
 .picks-wrapper h3 {
   font-family: 'Nova Flat', cursive;
   font-size: 2rem;
+  line-height: 2.6rem;
   padding: 1rem;
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5); 
 }
