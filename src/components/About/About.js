@@ -1,15 +1,14 @@
 import AboutButton from "../AboutButton";
 
 const About = ({ aboutDisplayed }) => (
-  <section>
+  <section className="about-section">
     <div className="overview-wrapper">
       <div className="about-box overview">
-        <h3 className="about-subheading">Pick teams fairly, and plan a series of friendly games where everyone gets their turn.</h3>
-        <h3 className="about-subheading"><i className="fas fa-futbol"></i></h3>                      
+        <h3 className="about-subheading">Pick teams fairly and plan a series of friendly games, where everyone gets their turn.</h3>
         <AboutButton aboutDisplayed={ aboutDisplayed }/>
         { aboutDisplayed ? 
         <>
-          <p className="about-text">Save Our Play is for groups who play a regular series of games, considering:</p>
+          <p className="about-text about-1">Save Our Play is for groups who play a regular series of games, considering:</p>
           <ul>
             <li>Not everyone is available to play in each game.</li>  
             <li>More people may want to play than the team size - particularly with current COVID restrictions on the numbers in which teams can safely meet and practice.</li>  

@@ -16,16 +16,16 @@ h1 {
   text-align: center;
   font-family: 'Nova Flat', cursive;
   color: rgb(255, 28, 62);
-  font-size: 4rem;
-  padding: 2rem 0.5rem;
+  font-size: 5.5rem;
+  padding: 5rem 0.5rem 3rem;
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 1); 
 }
 
 .about-subheading {
   text-align: center;
   font-family: 'Nova Flat', cursive;
-  font-size: 1.5rem;
-  line-height: 1.8rem;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
   margin: 0.5rem 0rem 1.5rem 0rem;
   color: beige;
   border-radius: 20px 20px 0px 0px;
@@ -38,14 +38,14 @@ h1 {
 
 .overview li {
   list-style: outside;
-  font-size: 0.9rem;
-  line-height: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
   color: beige;
 }
 
-.about-text {
-  font-size: 0.9rem;
-  line-height: 1.5rem;
+.about-text {  
+  font-size: 1.2rem;
+  line-height: 2rem;
   color: beige;
   padding-bottom: 0.5rem;
 }
@@ -66,7 +66,7 @@ p.about-text a:hover {
   white-space: nowrap;
   color: rgb(29, 36, 18);
   padding: 0px 2px;
-  margin: 0px 4px;
+  margin: 0px 8px;
   border-radius: 5px;
 }
 

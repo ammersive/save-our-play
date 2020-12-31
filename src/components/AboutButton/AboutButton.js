@@ -1,5 +1,5 @@
 const AboutButton = ({ clickAbout, aboutDisplayed }) => ( 
-    <button className="draw-button" onClick={ clickAbout }>
+    <button className="about-button" onClick={ clickAbout }>
         {aboutDisplayed ? "Hide info" : "More info" }
     </button>
 );

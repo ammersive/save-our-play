@@ -1,3 +1,7 @@
+.about-section {
+  padding-bottom: 3rem
+}
+
 .overview-wrapper {
   display: flex;
   margin: 2rem 20% 0rem 20%;
@@ -8,6 +12,7 @@
     margin: 1rem 1rem 0rem 1rem;
   }
 } 
+
 .about-boxes {
   display: flex;
   flex-wrap: wrap;
@@ -15,10 +20,24 @@
   padding: 1rem 0rem;
 }
 
+.about-1 {
+  margin-top: 1.6rem;
+}
+
+.about-button {
+  display: block;
+  background-color: beige;
+  margin: 0.8rem auto 0rem auto;
+  border: 0px;
+  font-size: 1rem;
+  padding: 0.4rem;
+  border-radius: 8px;      
+}
+
 .about-box {
   width: 20rem;
   background-color: rgb(29, 36, 18);
-  padding: 1rem;
+  padding: 1.8rem;
   margin: 1rem; 
   border-radius: 8px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5);
