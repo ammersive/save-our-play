@@ -147,6 +147,12 @@ const addPlayer = (state, { player }) => {
 // It returns a new version of the local Bank with the delete player removed.
 const deletePlayer = (state, { playerId }) => {
 
+  let checkedPlayers = state.players;
+  // Ensure that if user has added the player to the picked list, they are deleted from there too.
+  if (checkedPlayers.some(playersMember => playersMember.id === playerId)) {
+    checkedPlayers = checkedPlayers.filter((player) => player.id !== playerId);
+  }
+
   console.log("player id: ", playerId);
   let updatedBank = state.bank.filter((player) => player.id !== playerId);
   console.log("updated bank after filter: ", updatedBank);
@@ -154,6 +160,7 @@ const deletePlayer = (state, { playerId }) => {
   return {
     ...state, 
     bank: [...updatedBank],
+    players: [...checkedPlayers],
   };
 }
 
