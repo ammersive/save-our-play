@@ -11,7 +11,7 @@ class Save extends Component {
 
 	handleSave() {
     let data = [];
-    this.state.players.forEach(element => data.push(element.id));
+    this.state.players.forEach(element => data.push(element));
 		this.props.handleSave( data ); 		
 		this.setState({ players: [] }); 
 	}

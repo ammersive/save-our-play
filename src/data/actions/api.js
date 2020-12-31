@@ -15,13 +15,16 @@ export const getPlayers = () => {
 };
 
 export const updatePlayCounts = (data) => {
-  console.log("data for put request: ", data);
+
+  let postList = [];
+  let putList = [];
   
+  data.forEach(element => element.id === null ? postList.push(element) : putList.push(element.id));
+  postList.forEach(element => delete element.id);
+
   return (dispatch) => {
-
-    // axios.post("/", data )
-
-    axios.put("/", data ).then(( ) => {
+    axios.post("/", data )
+    axios.put("/", putList ).then(( ) => {
       dispatch(save());
     });
   };
