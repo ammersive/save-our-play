@@ -18,12 +18,12 @@ export const updatePlayCounts = (data) => {
 
   let postList = [];
   let putList = [];
-  
+
   data.forEach(element => element.id === null ? postList.push(element) : putList.push(element.id));
   postList.forEach(element => delete element.id);
 
   return (dispatch) => {
-    axios.post("/", data )
+    axios.post("/", postList )
     axios.put("/", putList ).then(( ) => {
       dispatch(save());
     });
