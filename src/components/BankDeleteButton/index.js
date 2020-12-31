@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import BankClearButton from "../BankClearButton/BankClearButton";
+import BankDeleteButton from "../BankDeleteButton/BankDeleteButton";
 import { deletePlayer } from "../../data/actions/api";
 
 const mapStateToProps = (state) => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BankClearButton);
+export default connect(mapStateToProps, mapDispatchToProps)(BankDeleteButton);

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import BankPickButton from "../BankPickButton/";
-import BankClearButton from "../BankClearButton/";
+import BankDeleteButton from "../BankDeleteButton/";
 
 class Bank extends Component {
 
@@ -22,7 +22,7 @@ class Bank extends Component {
             { bank.map((player, index) => (
               <li className={ players.some(pickedPlayer => pickedPlayer.id === player.id) ? "picked" : null }>
                 <div className="bank-button-wrap">
-                  <BankClearButton player={ player }/>
+                  <BankDeleteButton player={ player }/>
                 </div>                
                 <div className="player-cell">
                   { player.name }
