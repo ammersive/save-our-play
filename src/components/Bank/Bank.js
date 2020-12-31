@@ -21,6 +21,9 @@ class Bank extends Component {
             
             { bank.map((player, index) => (
               <li className={ players.some(pickedPlayer => pickedPlayer.id === player.id) ? "picked" : null }>
+                <div className="bank-add-wrap">
+                  <BankClearButton />
+                </div>                
                 <div className="player-cell">
                   { player.name }
                 </div>  
@@ -33,7 +36,6 @@ class Bank extends Component {
               </li>   
             )) }
           </ul>
-          <BankClearButton buttonText={ "Clear the bank" }/>
         </>
         : <p className="no-players">Bank is empty</p> }      
       </div>    

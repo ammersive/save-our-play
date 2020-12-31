@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => { 
   return {
-    clickClearBank: () => dispatch(clearBank())       
+    selectPlayer: () => dispatch(clearBank())       
   };
 };
 
