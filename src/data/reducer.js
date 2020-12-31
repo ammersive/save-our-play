@@ -124,12 +124,7 @@ const addPlayer = (state, { player }) => {
   } else if (state.players.some(playersMember => playersMember.name.toLowerCase() === player.name.toLowerCase())) {
     alert(`A player called ${player.name} has already been picked. You can add an initial to tell them apart`);
     return state;
-  } else {
-
-  player.isPicked = true;
-  player.isNew = true;
-
-  };
+  } 
 
   return {
     ...state,

@@ -16,7 +16,11 @@ export const getPlayers = () => {
 
 export const updatePlayCounts = (data) => {
   console.log("data for put request: ", data);
+  
   return (dispatch) => {
+
+    // axios.post("/", data )
+
     axios.put("/", data ).then(( ) => {
       dispatch(save());
     });
