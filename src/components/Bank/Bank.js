@@ -3,17 +3,13 @@ import BankPickButton from "../BankPickButton/";
 import BankClearButton from "../BankClearButton/";
 
 class Bank extends Component {
-  // constructor(props) {
-  //     super(props);
-
-  // }
 
   componentDidMount() {
     this.props.handleLoad();
   }
   
   render() {
-    const { bank } = this.props;
+    const { bank, players } = this.props;
 
     return (    
       <div className="bank">
@@ -22,8 +18,9 @@ class Bank extends Component {
         <> 
           <h4>Number of previous plays</h4> 
           <ul>
+            
             { bank.map((player, index) => (
-              <li className={ player.isPicked === true ? "picked" : null }>
+              <li className={ players.some(pickedPlayer => pickedPlayer.id === player.id) ? "picked" : null }>
                 <div className="player-cell">
                   { player.name }
                 </div>  
