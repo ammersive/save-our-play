@@ -1,12 +1,12 @@
 body {
   font-family: 'Nunito', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 }
 
 h1 {
   text-align: center;
   font-family: 'Nova Flat', cursive;
-  font-size: 5rem;
+  font-size: 7rem;
   color: rgb(255, 28, 62);
   padding: 5rem 0.5rem 4rem 0.5rem;
   text-shadow: 6px 6px 8px rgba(0, 0, 0, 1); 

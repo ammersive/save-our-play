@@ -1,12 +1,12 @@
 import Header from "./components/Header";
-import About from "./components/About";
+import About from "./components/About/";
 import NewPlayers from "./components/NewPlayers";
 import Teams from "./components/Teams";
 
-const App = () => (
+const App = ({ aboutDisplayed }) => (
   <>
     <Header />
-    <About />
+    <About aboutDisplayed={ aboutDisplayed }/>
     <NewPlayers />
     <Teams />
   </>

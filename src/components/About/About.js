@@ -1,16 +1,25 @@
-const About = () => (
+import AboutButton from "../AboutButton";
+
+const About = ({ aboutDisplayed }) => (
   <section>
     <div className="overview-wrapper">
       <div className="about-box overview">
         <h3 className="about-subheading">Pick teams fairly, and plan a series of friendly games where everyone gets their turn.</h3>
-        <h3 className="about-subheading"><i className="fas fa-futbol"></i></h3>
-        <p className="about-text">Save Our Play is for groups who play a regular series of games, considering:</p>
-        <ul>
-          <li>Not everyone is available to play in each game.</li>  
-          <li>More people may want to play than the team size - particularly with current COVID restrictions on the numbers in which teams can safely meet and practice.</li>  
-        </ul>        
+        <h3 className="about-subheading"><i className="fas fa-futbol"></i></h3>                      
+        <AboutButton aboutDisplayed={ aboutDisplayed }/>
+        { aboutDisplayed ? 
+        <>
+          <p className="about-text">Save Our Play is for groups who play a regular series of games, considering:</p>
+          <ul>
+            <li>Not everyone is available to play in each game.</li>  
+            <li>More people may want to play than the team size - particularly with current COVID restrictions on the numbers in which teams can safely meet and practice.</li>  
+          </ul> 
+        </>
+        :
+        null }          
       </div>
     </div>
+    { aboutDisplayed ? 
     <div className="about-boxes">
       <div className="about-box">
         <h3 className="about-subheading"><i className="fas fa-volleyball-ball"></i> Player bank</h3>
@@ -33,7 +42,8 @@ const About = () => (
         <h3 className="about-subheading">Version 2 information:</h3>
         <p className="about-text">Powered by <a href="https://github.com/ammersive/tp-back/" target="_blank" rel="noreferrer">this API</a>.</p>
       </div>
-    </div>
+    </div> :
+    null }
   </section>
 );
 export default About;

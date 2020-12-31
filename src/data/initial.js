@@ -6,6 +6,7 @@ const initial = {
   team2Name: "Team 2",
   bank: [],
   playersChosen: false,
+  aboutDisplayed: false,
 };
 
 export default initial;

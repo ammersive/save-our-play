@@ -1,6 +1,12 @@
 // Action creators:
 // Functions which return an action when called (from a component wrapper)
 
+export const aboutClicked = () => {
+  return {
+    type: "ABOUT_CLICKED"
+  };
+};
+
 export const storePlayers = (data) => ({
   type: "STORE_PLAYERS",
   data: data,

@@ -61,6 +61,14 @@ const nouns = [
   "Lads"
 ];
 
+const toggleAbout = (state) => {
+  return {
+    ...state,
+    aboutDisplayed: !state.aboutDisplayed,  
+  };
+}
+
+
 // storePlayers takes data that has come from the back end via a get request to the API and populates the bank in the application's state
 const storePlayers = (state, { data }) => {
 
@@ -276,6 +284,7 @@ const clearBank = (state) => {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "ABOUT_CLICKED": return toggleAbout(state);;
     case "STORE_PLAYERS": return storePlayers(state, action);;
     case "CLEAR_BANK": return clearBank(state);;
     case "PICK_PLAYER": return pickPlayer(state, action);

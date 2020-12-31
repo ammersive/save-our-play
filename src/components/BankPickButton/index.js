@@ -10,7 +10,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {  
   return {
-    // selectPlayer: ( player ) => console.log("from index ", player),
     selectPlayer: ( player ) => dispatch(pickPlayer(player)),
   };
 };
