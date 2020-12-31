@@ -13,13 +13,15 @@ export const storePlayers = (data) => ({
 // };
 
 export const addPlayer = ({ player }) => {
+  console.log("added player: ", player);
   return {
     type: "ADD_PLAYER",
     player: player,
   };
 };
 
-export const pickPlayer = ({ player }) => {
+export const pickPlayer = ( player ) => {
+  console.log("from action: ", player)
   return {
     type: "PICK_PLAYER",
     player: player,

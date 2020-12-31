@@ -32,9 +32,10 @@ export const updatePlayCounts = (data) => {
 };
 
 export const deletePlayer = (player) => {
-  let playerId = player.player.id;
+  let playerId = player.id;
   return (dispatch) => {
-    axios.delete(`/${playerId}`).then(() => {
+    axios.delete(`/${playerId}`)
+    .then(() => {
       dispatch(deleteLocalPlayer(playerId));
     });
   };

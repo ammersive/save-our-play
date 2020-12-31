@@ -68,6 +68,7 @@ const storePlayers = (state, { data }) => {
   // Give each banked player a property of isPicked, for data manipulation in drawPlayer()
   bank.forEach(player => player.isPicked = false);
   bank.sort(( a, b ) => b.id - a.id);
+  console.log("bank after get request: ", bank)
 
   return {
       ...state,
@@ -77,6 +78,8 @@ const storePlayers = (state, { data }) => {
 
 // pickPlayer fires when a "Pick" player button on the bank is clicked. If the incoming player's id doesn't match a player already in the picked players list, it adds the incoming player to that list.
 const pickPlayer = (state, { player }) => {
+
+  console.log("from reducer :", player);
   
   if (player.isPicked === false) {
     player.isPicked = true;
@@ -144,7 +147,9 @@ const addPlayer = (state, { player }) => {
 // It returns a new version of the local Bank with the delete player removed.
 const deletePlayer = (state, { playerId }) => {
 
+  console.log("player id: ", playerId);
   let updatedBank = state.bank.filter((player) => player.id !== playerId);
+  console.log("updated bank after filter: ", updatedBank);
 
   return {
     ...state, 
@@ -245,6 +250,7 @@ const save = (state) => {
     ...state,
     // Reset all state, except player bank
     players: [], 
+    bank: [],
     team1: [],
     team2: [],
     team1Name: "Team 1",
