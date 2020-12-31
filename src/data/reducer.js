@@ -67,6 +67,7 @@ const storePlayers = (state, { data }) => {
   let bank = data;
   // Give each banked player a property of isPicked, for data manipulation in drawPlayer()
   bank.forEach(player => player.isPicked = false);
+  bank.sort(( a, b ) => b.id - a.id);
 
   return {
       ...state,
