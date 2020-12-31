@@ -63,20 +63,24 @@ const nouns = [
 
 // storePlayers takes data that has come from the back end via a get request to the API and populates the bank in the application's state
 const storePlayers = (state, { data }) => {
+
+  let bank = data;
+  // Give each banked player a property of isPicked, for data manipulation in drawPlayer()
+  bank.forEach(player => player.isPicked = false);
+
   return {
       ...state,
-      bank: data,
+      bank: bank,
   };
 };
-
 
 // pickPlayer fires when a "Pick" player button on the bank is clicked. If the incoming player's id doesn't match a player already in the picked players list, it adds the incoming player to that list.
 const pickPlayer = (state, { player }) => {
   
-  if ((state.players.length === 0) || (false === state.players.some(listPlayer => listPlayer.id === player.id))) { 
+  if (player.isPicked === false) {
     player.isPicked = true;
     state.players = [...state.players, player];
-  };  
+  };    
 
   return {
     ...state   
@@ -86,28 +90,24 @@ const pickPlayer = (state, { player }) => {
 // drawPlayer ensures players with the lowest play count are drawn first.
 // If multiple players share the lowest play count, they are picked at random to avoid bias over time.
 const drawPlayer = (state) => { 
-  // First: check there is at least one unpicked player in the bank:
-  // "If, for at least one player in the bank, their id is NOT shared by any player already picked"
-  // if (state.bank.some(bankPlayer => state.players.every((pickedPlayer) => pickedPlayer.id !== bankPlayer.id) )) {
-  //   console.log("true");
-
+      
   // If at least one player in the bank remains unpicked:
-  if (state.bank.some(player => false === player.hasOwnProperty('isPicked'))) {
-    // Filter players who have already been selected
-    let filteredBank = state.bank.filter( player => false === player.hasOwnProperty('isPicked'));
-    // Build a new randomised list from the filtered bank
-    console.log(filteredBank);
-    let randomisedFilter = [];
-    for (let i = filteredBank.length; i > 0; i -= 1) {
-      let pick = filteredBank.splice(Math.floor(Math.random() * i), 1);
-      randomisedFilter.push(pick[0]);
+    if (state.bank.some(player => player.isPicked === false)) {
+
+      // Filter players who have already been selected
+      let filteredBank = state.bank.filter( player => player.isPicked === false);
+      // Build a new randomised list from the filtered bank
+      let randomisedFilter = [];
+      for (let i = filteredBank.length; i > 0; i -= 1) {
+        let pick = filteredBank.splice(Math.floor(Math.random() * i), 1);
+        randomisedFilter.push(pick[0]);
+      };
+      // Sort highest to lowest play_counts (players with same play_counts will now not always appear at same/similar indices)
+      randomisedFilter.sort(( a, b ) => a.play_count - b.play_count); 
+      // Select the first (so, a player from the set of players with the lowest score, produced randomly), and add to players list
+      randomisedFilter[0].isPicked = true;
+      state.players = [...state.players, randomisedFilter[0]];
     };
-    // Sort highest to lowest play_counts (players with same play_counts will now not always appear at same/similar indices)
-    randomisedFilter.sort(( a, b ) => a.play_count - b.play_count); 
-    // Select the first (so, a player from the set of players with the lowest score, produced randomly), and add to players list
-    randomisedFilter[0].isPicked = true;
-    state.players = [...state.players, randomisedFilter[0]];
-  };
 
   return {
     ...state,
@@ -161,8 +161,8 @@ const startGame = (state) => {
 
 // clearPickedPlayers clears the picked players list.
 const clearPickedPlayers = (state) => {
-  state.bank.forEach(player => resetIsPicked(player));
-
+  state.bank.forEach(player => player.isPicked = false);
+ 
   return {
     ...state,
     players: [],
@@ -220,23 +220,23 @@ const generateName2 = (state) => {
   }; 
 };
 
-// Increments the play_count of the player passed to the function parameter 
-const incrementPlayCount = (player) => {
-  player.play_count = player.play_count + 1;
-  return player;
-}
+// // Increments the play_count of the player passed to the function parameter 
+// const incrementPlayCount = (player) => {
+//   player.play_count = player.play_count + 1;
+//   return player;
+// }
 
-// Resets ths isPicked property of the player passed to the function parameter
-const resetIsPicked = (player) => {
-  player.isPicked = false;
-  return player;
-}
+// // Resets ths isPicked property of the player passed to the function parameter
+// const resetIsPicked = (player) => {
+//   player.isPicked = false;
+//   return player;
+// }
 
-// Updates the "isNew" property of the player passed to the function parameter
-const updateIsNew = (player) => {
-  player.isNew = false;
-  return player;
-}
+// // Updates the "isNew" property of the player passed to the function parameter
+// const updateIsNew = (player) => {
+//   player.isNew = false;
+//   return player;
+// }
 
 // save increments the scores of all players in the players list with incrementplay_count(), works out if they are new (and so need to be added to the bank), and resets their other properties with updateIsNew() and resetIsPicked()
 const save = (state) => {
