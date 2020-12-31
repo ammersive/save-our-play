@@ -22,11 +22,3 @@ class BankClearButton extends Component {
 }
 
 export default BankClearButton;
-
-
-// const BankClearButton = ({ clickClearBank }) => (
-//   <button  onClick={ clickClearBank }>
-//     x
-//   </button>
-// );
-// export default BankClearButton;

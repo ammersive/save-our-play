@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import BankClearButton from "../BankClearButton/BankClearButton";
-import { clearBank } from "../../data/actions/actions";
+import { deletePlayer } from "../../data/actions/api";
 
 const mapStateToProps = (state) => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => { 
   return {
-    selectPlayer: () => dispatch(clearBank())       
+    selectPlayer: (player) => dispatch(deletePlayer(player))       
   };
 };
 

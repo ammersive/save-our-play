@@ -132,6 +132,18 @@ const addPlayer = (state, { player }) => {
   }; 
 };
 
+// deletePlayer fires after an API call to detele a player from the database.
+// It returns a new version of the local Bank with the delete player removed.
+const deletePlayer = (state, { playerId }) => {
+
+  let updatedBank = state.bank.filter((player) => player.id !== playerId);
+
+  return {
+    ...state, 
+    bank: [...updatedBank],
+  };
+}
+
 // startGame fires when the "Create Teams" button is pressed and moves the view to Teams, hiding the New Players view.
 const startGame = (state) => {
   return {
@@ -248,6 +260,7 @@ const reducer = (state, action) => {
     case "PICK_PLAYER": return pickPlayer(state, action);
     case "DRAW_PLAYER": return drawPlayer(state);
     case "ADD_PLAYER": return addPlayer(state, action);
+    case "DELETE_PLAYER": return deletePlayer(state, action);    
     case "CREATE_TEAMS": return startGame(randomiseTeams(state));
     case "CLEAR_CLICKED_PLAYERS": return clearPickedPlayers(state);;
     case "RANDOMISE_TEAMS": return randomiseTeams(state);

@@ -2,7 +2,8 @@ import axios from "../../axios";
 
 import {
   storePlayers,
-  save
+  deleteLocalPlayer,
+  save,
 } from "./actions";
 
 export const getPlayers = () => {
@@ -26,6 +27,15 @@ export const updatePlayCounts = (data) => {
     axios.post("/", postList )
     axios.put("/", putList ).then(( ) => {
       dispatch(save());
+    });
+  };
+};
+
+export const deletePlayer = (player) => {
+  let playerId = player.player.id;
+  return (dispatch) => {
+    axios.delete(`/${playerId}`).then(() => {
+      dispatch(deleteLocalPlayer(playerId));
     });
   };
 };

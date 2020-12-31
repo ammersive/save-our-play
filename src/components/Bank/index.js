@@ -12,7 +12,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
       handleLoad: () => dispatch(getPlayers()),
-      // handleLoad: () => console.log("hello"),
   };
 };
 

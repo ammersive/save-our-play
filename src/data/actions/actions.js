@@ -6,11 +6,11 @@ export const storePlayers = (data) => ({
   data: data,
 });
 
-export const clearBank = () => {  
-  return { 
-    type: "CLEAR_BANK",
-  };
-};
+// export const clearBank = () => {  
+//   return { 
+//     type: "CLEAR_BANK",
+//   };
+// };
 
 export const addPlayer = ({ player }) => {
   return {
@@ -31,6 +31,11 @@ export const drawPlayer = () => {
     type: "DRAW_PLAYER"
   };
 };
+
+export const deleteLocalPlayer = (playerId) => ({
+  type: "DELETE_PLAYER",
+  playerId: playerId,
+});
 
 export const createTeams = () => {
   return {
