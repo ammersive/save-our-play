@@ -20,7 +20,6 @@ export const addPlayer = ({ player }) => {
 };
 
 export const pickPlayer = ({ player }) => {
-  console.log("from action ", player);
   return {
     type: "PICK_PLAYER",
     player: player,
@@ -63,8 +62,8 @@ export const shuffleTeams = () => {
   };
 };
 
-export const save = () => {
-  return {
-    type: "SAVE",
-  };
-};
+// export const save = () => {
+//   return {
+//     type: "SAVE",
+//   };
+// };

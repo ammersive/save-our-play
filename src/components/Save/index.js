@@ -1,11 +1,17 @@
 import { connect } from "react-redux";
 import Save from "./Save";
-import { save } from "../../data/actions/actions";
+import { updatePlayCounts } from "../../data/actions/api";
 
-const mapDispatchToProps = (dispatch) => { 
+const mapStateToProps = (state) => {
   return {
-    clickSave: () => dispatch(save())       
+    players: state.players,
   };
 };
 
-export default connect(null, mapDispatchToProps)(Save);
+const mapDispatchToProps = (dispatch) => { 
+  return {       
+    handleSave: data => dispatch(updatePlayCounts(data))       
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Save);

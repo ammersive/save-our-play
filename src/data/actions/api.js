@@ -12,3 +12,12 @@ export const getPlayers = () => {
     });
   };
 };
+
+export const updatePlayCounts = (data) => {
+  console.log("data for put request: ", data);
+  return () => {
+    axios.put("/", data ).then(( ) => {
+      console.log("hello");
+    });
+  };
+};

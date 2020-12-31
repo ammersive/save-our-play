@@ -4,7 +4,7 @@ import Team2 from "../Team/Team2";
 import Reshuffle from "../Reshuffle/";
 import Save from "../Save/";
 
-const Teams = ({ playersChosen }) => (
+const Teams = ({ playersChosen, players }) => (
   playersChosen ?
   <section className="section-wrapper game-wrapper">
     <header className="section-header">
@@ -22,7 +22,7 @@ const Teams = ({ playersChosen }) => (
       </div>
     </div>
     <div className="save">
-      <Save />
+      <Save players={ players }/>
     </div>      
   </section> 
   : null
