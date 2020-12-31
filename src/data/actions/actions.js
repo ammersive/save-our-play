@@ -62,8 +62,8 @@ export const shuffleTeams = () => {
   };
 };
 
-// export const save = () => {
-//   return {
-//     type: "SAVE",
-//   };
-// };
+export const save = () => {
+  return {
+    type: "SAVE",
+  };
+};

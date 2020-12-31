@@ -226,13 +226,7 @@ const updateIsNew = (player) => {
 
 // save increments the scores of all players in the players list with incrementplay_count(), works out if they are new (and so need to be added to the bank), and resets their other properties with updateIsNew() and resetIsPicked()
 const save = (state) => {
-  // Increment the play_count of each player and reset isPicked to false
-  state.players.forEach(player => incrementPlayCount(resetIsPicked(player)));
-  // Push new players to the bank, reseting their isNew property to false
-  // state.players.forEach(player => player.isNew ? state.bank = [...state.bank, updateIsNew(player)] : null );
-  state.players.forEach(player => player.isNew ? state.bank = [updateIsNew(player), ...state.bank] : null );
-
-  return {
+    return {
     ...state,
     // Reset all state, except player bank
     players: [], 
