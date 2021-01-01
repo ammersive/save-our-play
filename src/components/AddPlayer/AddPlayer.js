@@ -24,7 +24,7 @@ class AddPlayer extends Component {
 	render() {
 		return (
 			<div className="draw-add-players">
-				<h3>Add new</h3>
+				<h3>Add</h3>
 				<p>Add new player</p>
 				<form onSubmit={ this.handleSubmit } >
 					<input onChange={ this.handleChange } value={ this.state.player.name }/>

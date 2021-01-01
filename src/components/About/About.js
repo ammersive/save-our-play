@@ -39,7 +39,8 @@ const About = ({ aboutDisplayed }) => (
       </div>
       <div className="about-box">
         <h3 className="about-subheading">Version 2 information:</h3>
-        <p className="about-text">Powered by <a href="https://github.com/ammersive/tp-back/" target="_blank" rel="noreferrer">this API</a>.</p>
+        <p className="about-text">Save our Play now stores player data between sessions, powered by <a href="https://github.com/ammersive/tp-back/" target="_blank" rel="noreferrer">this API</a>. Version 1, which returns to a default state between browser sessions, can be found <a href="https://ammersive.github.io/team-picker/" target="_blank" rel="noreferrer">here</a>. </p>
+        <AboutButton aboutDisplayed={ aboutDisplayed }/>
       </div>
     </div> :
     null }
