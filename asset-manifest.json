@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/save-our-play/static/css/main.30182876.chunk.css",
+    "main.js": "/save-our-play/static/js/main.f9acf8ef.chunk.js",
+    "main.js.map": "/save-our-play/static/js/main.f9acf8ef.chunk.js.map",
+    "runtime-main.js": "/save-our-play/static/js/runtime-main.ebeef680.js",
+    "runtime-main.js.map": "/save-our-play/static/js/runtime-main.ebeef680.js.map",
+    "static/js/2.fdc54a50.chunk.js": "/save-our-play/static/js/2.fdc54a50.chunk.js",
+    "static/js/2.fdc54a50.chunk.js.map": "/save-our-play/static/js/2.fdc54a50.chunk.js.map",
+    "index.html": "/save-our-play/index.html",
+    "static/css/main.30182876.chunk.css.map": "/save-our-play/static/css/main.30182876.chunk.css.map",
+    "static/js/2.fdc54a50.chunk.js.LICENSE.txt": "/save-our-play/static/js/2.fdc54a50.chunk.js.LICENSE.txt",
+    "static/media/main.css": "/save-our-play/static/media/autumn-ball.ba7f43d9.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ebeef680.js",
+    "static/js/2.fdc54a50.chunk.js",
+    "static/css/main.30182876.chunk.css",
+    "static/js/main.f9acf8ef.chunk.js"
+  ]
+}
