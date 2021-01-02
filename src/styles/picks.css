@@ -6,6 +6,17 @@
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5); 
 }
 
+@media screen and (max-width: 460px) {
+  .picks {
+    width: 17rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .picks {
+    width: 14rem;
+  }
+}
+
 .players-list {
   display: flex;
   flex-wrap: wrap;

@@ -21,6 +21,12 @@ h1 {
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 1); 
 }
 
+@media screen and (max-width: 320px) {
+  .section-header {
+    font-size: 4rem;
+  }
+}
+
 .about-subheading {
   text-align: center;
   font-family: 'Nova Flat', cursive;
