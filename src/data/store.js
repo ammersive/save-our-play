@@ -1,3 +1,4 @@
+// Import the store functionality from redux to allow components to subscribe to updates from the application's state
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import initial from "./initial";
@@ -9,6 +10,7 @@ const composeEnhancers =
 const store = createStore(
   reducer,
   initial,
+  // necessary middleware for api actions
   composeEnhancers(applyMiddleware(thunk))
 );
 

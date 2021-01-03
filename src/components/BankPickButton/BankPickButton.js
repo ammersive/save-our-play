@@ -9,6 +9,7 @@ class BankPickButton extends Component {
 
   handleClick(event) {
     event.preventDefault();
+    // Pass up the player data (that was passed into this component) to the pick action so it knows which player to pick
     this.props.selectPlayer(this.props.player);
   }
 

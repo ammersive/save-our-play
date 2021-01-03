@@ -10,7 +10,8 @@ class Save extends Component {
 	}
 
 	handleSave() {
-    let data = [];
+		let data = [];
+		// populate a list with data on which players were just selected to pass to the API action creator updatePlayCounts
     this.state.players.forEach(element => data.push(element));
 		this.props.handleSave( data ); 		
 		this.setState({ players: [] }); 

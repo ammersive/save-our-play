@@ -9,8 +9,8 @@ class BankDeleteButton extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    console.log("player from bank button: ", this.props.player);
     if(window.confirm("Do you want to delete this player?")){
+      // Pass up the player data (that was passed into this component) to the delete action so it knows which player to delete
       this.props.selectPlayer(this.props.player);
     }; 
   }

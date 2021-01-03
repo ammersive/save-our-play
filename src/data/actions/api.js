@@ -1,3 +1,6 @@
+// Action creator functions, which make API calls, and which also dispatch state action creators from the actions.js file
+
+// import the axios configuration file with further details on the API endpoint URL and data formatting
 import axios from "../../axios";
 
 import {
@@ -6,6 +9,7 @@ import {
   save,
 } from "./actions";
 
+// GET request to the database to return all player information
 export const getPlayers = () => {
   return (dispatch) => {
     axios.get("/").then(({ data }) => {
@@ -34,6 +38,8 @@ export const updatePlayCounts = (data) => {
   };
 };
 
+// Delete a player from the database and on success, delete them locally
+// We have to do this second local deletion because the Bank component isn’t hooked up directly to the database, it only has access to the local application state. Once that updates, it will re-render, with the deleted player no-longer showing
 export const deletePlayer = (player) => {
   let playerId = player.id;
   return (dispatch) => {

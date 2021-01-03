@@ -4,6 +4,9 @@ import BankDeleteButton from "../BankDeleteButton/";
 
 class Bank extends Component {
 
+  // This will dispatch and action to send a GET request to get all players from the database
+  // This action will populate the bank list in state with data from the database
+  // Because the bank list is passed into this component as a prop, when it changes, this bank component will re-render with updated information
   componentDidMount() {
     this.props.handleLoad();
   }

@@ -9,13 +9,15 @@ const toggleAbout = (state) => {
 }
 
 // storePlayers takes data that has come from the back end via a get request to the API and populates the bank in the application's state
+// This causes the Bank component (which is subscribed to the bank list in state via the Redux store) to re-render populated with all players from the database
 const storePlayers = (state, { data }) => {
   let bank = data;
 
-  // Give each banked player a property of isPicked, for data manipulation in drawPlayer()
+  // Give each banked player a property of isPicked: this is for late data handling in drawPlayer()
   bank.forEach(player => player.isPicked = false);
 
-  // Sort bank by id as it will display new players at top of list so user can see their changes more easily
+  // Sort bank by id
+  // This is because new players will then be displayed at top of list, so user can see their changes more easily
   bank.sort(( a, b ) => b.id - a.id);
 
   return {
@@ -39,7 +41,7 @@ const pickPlayer = (state, { player }) => {
 };
 
 // drawPlayer ensures players with the lowest play count are drawn first.
-// If multiple players share the lowest play count, they are picked at random to avoid bias over multiple games.
+// If multiple players share the lowest play count, they are picked at random - this is to avoid bias over multiple games.
 const drawPlayer = (state) => {       
   // If at least one player in the bank remains unpicked:
     if (state.bank.some(player => player.isPicked === false)) {
@@ -67,7 +69,7 @@ const drawPlayer = (state) => {
   }; 
 };
 
-// addPlayer handles the addition of new players to the picks list, and includes unique name validation.
+// addPlayer handles the addition of new players to the picks list, and includes unique name validation so we don't have multiple players with the same name.
 const addPlayer = (state, { player }) => {
   // trim trailing whitespace from player name
   player.name = player.name.trimLeft().trimRight();
@@ -76,14 +78,19 @@ const addPlayer = (state, { player }) => {
   if (player.name === "") {
     alert("You cannot add a nameless player!");
     return state;
-
-  // prevent non-unique player names (case insensitive)
-  } else if (state.bank.some(bankPlayer => bankPlayer.name.toLowerCase() === player.name.toLowerCase())) {
+  }
+  // prevent player names longer than the database allows
+  else if (player.name.length >= 50) {
+    alert("Player names must less than 50 characters long");
+    return state;  
+  }  
+  // prevent non-unique player names (a case insensitive check to catch all potential matches)
+  else if (state.bank.some(bankPlayer => bankPlayer.name.toLowerCase() === player.name.toLowerCase())) {
     alert(`A player called ${player.name} already exists in the bank. You can either add them directly from the bank with the pick button, or choose a different name`);
     return state;
-
-    // invite user to differentiate a name that matches a picked name, in case e.g. 2 Jens are playing
-  } else if (state.players.some(playersMember => playersMember.name.toLowerCase() === player.name.toLowerCase())) {
+  }
+    // invite the user to differentiate a name that matches a picked name, in case e.g. 2 Jens are playing
+  else if (state.players.some(playersMember => playersMember.name.toLowerCase() === player.name.toLowerCase())) {
     alert(`A player called ${player.name} has already been picked. You can add an initial to tell them apart`);
     return state;
   } 

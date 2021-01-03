@@ -1,3 +1,9 @@
+// Action creator functions, for actions which trigger changes in the application state
+
+// Dispatched by the index.js files in the component folders
+// Actions carry at minimum an action type which are utilised in the reducer to enable particular reducer functions to be called.
+// They may also carry data passed into the function parameter (e.g. that of the particular player associated with a button)
+
 export const aboutClicked = () => {
   return {
     type: "ABOUT_CLICKED"
@@ -9,16 +15,14 @@ export const storePlayers = (data) => ({
   data: data,
 });
 
-export const addPlayer = ({ player }) => {
-  console.log("added player: ", player);
+export const addPlayer = ({ player }) => {  
   return {
     type: "ADD_PLAYER",
     player: player,
   };
 };
 
-export const pickPlayer = ( player ) => {
-  console.log("from action: ", player)
+export const pickPlayer = ( player ) => {  
   return {
     type: "PICK_PLAYER",
     player: player,
